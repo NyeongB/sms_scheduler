@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.test.main.MemberDAO"> 
+
+		<select id="check" resultType="com.oopsw.dt.SubjectDTO"> 
+			SELECT s.subject_name, category, s.subject_code, credit, professor_name, subject_time, subject_place, subject_grade, register_code 
+			FROM registers r, subjects s 
+			WHERE r.student_id = #{studentId} AND r.subject_code = s.subject_code AND r.score is NULL
+		</select>
+		
+		<delete id="delete"> 
+			DELETE FROM registers WHERE register_code = #{registerCode}
+		</delete>
+ 
+		<select id="score" resultType="com.oopsw.dt.ScoreDTO"> 
+			SELECT r.year as year, r.semester as semester, sub.subject_code as subject_code, sub.subject_name as subject_name, r.score as score, sub.credit as credit, sub.category as category, sub.professor_name as professor_name
+			FROM students stu, registers r, subjects sub
+			WHERE stu.student_id = r.student_id AND r.subject_code = sub.subject_code AND r.year= #{regYear} AND r.semester= #{regSemester} AND stu.student_id= #{studentId} AND r.score is not null
+			ORDER BY semester
+		</select>
+		
+		<select id="scoreAll" resultType="com.oopsw.dt.ScoreDTO"> 
+			SELECT r.year as year, r.semester as semester, sub.subject_code as subject_code, sub.subject_name as subject_name, r.score as score, sub.credit as credit, sub.category as category, sub.professor_name as professor_name
+			FROM students stu, registers r, subjects sub
+			WHERE stu.student_id = r.student_id AND r.subject_code = sub.subject_code AND stu.student_id= #{studentId} AND r.score is not null
+			ORDER BY year, semester ASC, category DESC
+		</select>
+		 
+</mapper>

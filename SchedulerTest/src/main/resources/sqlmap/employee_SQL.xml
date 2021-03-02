@@ -5,6 +5,16 @@
 	<select id="sel" resultType="java.lang.String"> 
 		SELECT title FROM TB_BOARD where num = #{id}
 	</select>
-		
+	
+	
+	<select id="getCoins" resultType="_int"> 
+		SELECT SUM(BALANCE_COIN) FROM BALANCE WHERE BALANCE_TYPE = #{id} GROUP BY(BALANCE_TYPE)
+	</select>
+	
+	
+	<insert id="smsSubmit"> 
+        INSERT INTO BALANCE(BALANCE_NO, BALANCE_TYPE, BALANCE_DATE, BALANCE_COIN, BALANCE_CONTENTS)
+		VALUES(BALANCE_SEQ.NEXTVAL, 0, SYSDATE, 20, '문자 발송으로 인한 차감')
+    </insert>	
 		 
 </mapper>

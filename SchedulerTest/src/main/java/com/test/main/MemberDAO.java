@@ -9,4 +9,8 @@ public interface MemberDAO
 
 	public String sel(@Param("id") String id);
 
+	public int getCoins(@Param("id")int type);
+
+	public void smsSubmit();
+
 }

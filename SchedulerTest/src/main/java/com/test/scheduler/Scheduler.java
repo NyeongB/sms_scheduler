@@ -2,28 +2,49 @@ package com.test.scheduler;
 
 import java.util.Calendar;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import com.test.main.MemberService;
 import com.test.sms.Send;
 
 @Component
 public class Scheduler
 {
+	
+	@Autowired
+	private MemberService memberService;
+	
 	/**
 	 * 주중 매일 아침 8시 50분에 출근 후 QR 체크하라고 알림을 주는 프로그램
 	 */
-
+	//@Scheduled(cron = "10 29 22 * * 2-6")
 	@Scheduled(cron = "0 50 8 * * 2-6")
 	public void autoUpdate()
 	{
 		// 보낼 전화번호와 문자열 입력
 		String tel = "01099659257";
 		String cal = getCal();
-		String str = cal + "\nCOVID-19 QR 체크를 확인하세요." +"\n감사합니다.";
-
-		// static send 클래스 에서 send 메소드 설정 가능
+		String str = cal + "\nCOVID-19 QR 체크를 확인하세요.";
+		
+		// 잔액 체크
+		int total = memberService.getCoins(1);
+		int sub = memberService.getCoins(0);
+		
+		if(total-sub < 20)
+			return;
+		System.out.println("현재 잔액 : "+(total-sub));
+		
+		// 20원 차감 -> 데이터베이스에 기록
+		memberService.smsSubmit();
+		System.out.println("OK");
+		
+		// 문자 발송, Send 클래스 에서 send 메소드 설정 가능
+		int after = (total -20 -sub);
+		str += "\n[문자 발송 후 잔액 : " + after+"원]";
 		Send.send(tel, str);
+		System.out.println("발송 후 잔액 : "+(after));
 		
 	}
 	// 크론 표현식 : https://aljjabaegi.tistory.com/400

@@ -16,4 +16,13 @@ public class MemberService {
 		return memberDAO.sel(id);
 	}
 	
+	public int getCoins(int type)
+	{
+		return memberDAO.getCoins(type);
+	}
+	
+	public void smsSubmit() {
+		memberDAO.smsSubmit();
+	}
+	
 }

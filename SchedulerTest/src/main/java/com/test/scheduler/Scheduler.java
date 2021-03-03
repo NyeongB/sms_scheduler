@@ -19,7 +19,7 @@ public class Scheduler
 	/**
 	 * 주중 매일 아침 8시 50분에 출근 후 QR 체크하라고 알림을 주는 프로그램
 	 */
-	//@Scheduled(cron = "10 29 22 * * 2-6")
+	
 	@Scheduled(cron = "0 50 8 * * 2-6")
 	public void autoUpdate()
 	{
@@ -47,6 +47,11 @@ public class Scheduler
 		System.out.println("발송 후 잔액 : "+(after));
 		
 	}
+	/*
+	21.03.03 오류 내용
+	서버에 프로그램 구동중에 문자 발송이 안됌
+	원인 : getCoins() 메소드와 매핑된 쿼리에서 type이 0인 값이 없음 nvl로 처리 -> NVL해도 아무것도 안나옴 테스트0값 넣음
+	*/
 	// 크론 표현식 : https://aljjabaegi.tistory.com/400
 	// 참고 블로그 : https://m.blog.naver.com/deeperain/221609802306
 

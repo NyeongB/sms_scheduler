@@ -20,7 +20,7 @@ public class Scheduler
 	 * 주중 매일 아침 8시 50분에 출근 후 QR 체크하라고 알림을 주는 프로그램
 	 */
 	
-	@Scheduled(cron = "0 50 8 * * 2-6")
+	@Scheduled(cron = "0 50 8 * * 1-5")
 	public void autoUpdate()
 	{
 		// 보낼 전화번호와 문자열 입력
@@ -42,7 +42,8 @@ public class Scheduler
 		
 		// 문자 발송, Send 클래스 에서 send 메소드 설정 가능
 		int after = (total -20 -sub);
-		str += "\n[문자 발송 후 잔액 : " + after+"원]";
+		String money = String.format("%,d", after);
+		str += "\n[문자 발송 후 잔액 : " + money+"원]";
 		Send.send(tel, str);
 		System.out.println("발송 후 잔액 : "+(after));
 		

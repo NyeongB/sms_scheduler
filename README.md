@@ -2,7 +2,7 @@
 <hr>
 <h3>v0.1 : 스케줄러 문자 알림</h3>
 <br>
-<img src="https://user-images.githubusercontent.com/46181195/109642228-07235900-7b96-11eb-8495-52cdd2f60ab8.png">
+<img src="https://user-images.githubusercontent.com/46181195/110476596-7f08fa80-8125-11eb-94d3-69318df17f7c.png">
 <hr>
 <h3>v0.2 : </h3>
 <br>

@@ -24,5 +24,12 @@ public class MemberService {
 	public void smsSubmit() {
 		memberDAO.smsSubmit();
 	}
+
+	public int getCoins_test()
+	{
+		return memberDAO.getCoins_test();
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

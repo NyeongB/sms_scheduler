@@ -13,4 +13,6 @@ public interface MemberDAO
 
 	public void smsSubmit();
 
+	public int getCoins_test();
+
 }

@@ -40,6 +40,10 @@ public class HomeController
 		String s = memberService.sel("1");
 		System.out.println(s);
 		model.addAttribute("str", s);
+		
+		//int test_num = memberService.getCoins_test();
+		//model.addAttribute("test_num", test_num);
+		
 		return "home";
 	}
 

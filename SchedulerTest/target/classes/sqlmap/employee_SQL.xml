@@ -12,6 +12,14 @@
 	</select>
 	
 	
+	<select id="getCoins_test" resultType="_int"> 
+		SELECT CAL_TOTAL('TEST') FROM DUAL
+	</select> 
+	
+<!-- 	<select id="getCoins_test" resultType="_int"> 
+		select count(*) from BALANCE
+	</select> -->
+	
 	<insert id="smsSubmit"> 
         INSERT INTO BALANCE(BALANCE_NO, BALANCE_TYPE, BALANCE_DATE, BALANCE_COIN, BALANCE_CONTENTS)
 		VALUES(BALANCE_SEQ.NEXTVAL, 0, SYSDATE, 20, '문자 발송으로 인한 차감')

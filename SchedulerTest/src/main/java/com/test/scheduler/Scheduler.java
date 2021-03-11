@@ -40,19 +40,20 @@ public class Scheduler
 		String str = cal + "\nCOVID-19 QR 체크를 확인하세요.";
 
 		// 잔액 체크
-		int total = memberService.getCoins(1);
-		int sub = memberService.getCoins(0);
+		int total_money = memberService.getCoins_test();
+		//int total = memberService.getCoins(1);
+		//int sub = memberService.getCoins(0);
 
-		if (total - sub < 20)
+		if (total_money < 20)
 			return;
-		System.out.println("현재 잔액 : " + (total - sub));
+		System.out.println("현재 잔액 : " + (total_money));
 
 		// 20원 차감 -> 데이터베이스에 기록
 		memberService.smsSubmit();
 		System.out.println("OK");
 
 		// 문자 발송, Send 클래스 에서 send 메소드 설정 가능
-		int after = (total - 20 - sub);
+		int after = (total_money - 20);
 		String money = String.format("%,d", after);
 		str += "\n[문자 발송 후 잔액 : " + money + "원]";
 		Send.send(tel, str);

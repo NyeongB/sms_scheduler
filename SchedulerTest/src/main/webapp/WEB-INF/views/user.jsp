@@ -30,11 +30,11 @@ hr {
 
 				<br>
 				<hr>
-				<br>
-				<br>
+				<br> <br>
 
 
-				<p class="lead" style="text-align: right; font-size: xx-large;">회원 정보</p>
+				<p class="lead" style="text-align: right; font-size: xx-large;">회원
+					정보</p>
 
 
 
@@ -47,6 +47,7 @@ hr {
 								<th>아이디</th>
 								<th>전화번호</th>
 								<th>내용</th>
+								<th>남은횟수</th>
 								<th>가입일</th>
 								<th>활성화</th>
 								<th>활성화 버튼</th>
@@ -59,13 +60,14 @@ hr {
 								<td>ccn_01</td>
 								<td>010-9965-****</td>
 								<td>기본내용</td>
+								<td>51회</td>
 								<td>2021-03-01</td>
 								<td>문자활성화</td>
 								<td><button type="button" class="btn">신청</button></td>
 							</tr>
 
 						</tbody>
-						
+
 					</table>
 				</div>
 

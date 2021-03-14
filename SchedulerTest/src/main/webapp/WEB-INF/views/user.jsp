@@ -62,7 +62,7 @@ hr {
 								<td>${tmp.id }</td>
 								<td>${tmp.phone }</td>
 								<td>${tmp.content }</td>
-								<td>${tmp.total }</td>
+								<td>${tmp.total } 원</td>
 								<td>${tmp.count } 회</td>
 								<td>${tmp.date }</td>
 								<td>${tmp.onoff }</td>

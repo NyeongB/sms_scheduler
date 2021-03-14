@@ -25,6 +25,10 @@ public class MemberService {
 	public void smsSubmit() {
 		memberDAO.smsSubmit();
 	}
+	
+	public void smsSubmit2(String id) {
+		memberDAO.smsSubmit2(id);
+	}
 
 	public int getCoins_test()
 	{
@@ -37,6 +41,12 @@ public class MemberService {
 	{
 		// TODO Auto-generated method stub
 		return memberDAO.getUsers();
+	}
+
+	public int getTotal(String id)
+	{
+		// TODO Auto-generated method stub
+		return memberDAO.getTotal(id);
 	}
 	
 }

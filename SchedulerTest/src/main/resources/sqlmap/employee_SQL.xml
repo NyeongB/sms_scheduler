@@ -25,6 +25,7 @@
 		VALUES(BALANCE_SEQ.NEXTVAL, 0, SYSDATE, 20, '문자 발송으로 인한 차감')
     </insert>
     
+    <!-- 회원정보 조회 -->
     <select id="getUsers" resultType="com.test.main.UserDTO"> 
 		SELECT T.*, (SELECT NVL(GET_TOTAL("ID"),'0') "total" FROM DUAL) "TOTAL" FROM 
 		(SELECT ROWNUM "NUM", TBL.USER_ID "ID", TBL.USER_NAME "NAME", TBL.USER_CONTENT "CONTENT"
@@ -33,5 +34,16 @@
 		FROM TBL_USER TBL
 		ORDER BY "DATE" ) T
 	</select> 	
+	
+	<!-- 아이디 별 잔액 조회 -->
+	<select id="getTotal" resultType="_int"> 
+		SELECT NVL(GET_TOTAL(#{id}),'0') "total" FROM DUAL
+	</select> 
+	
+	<!-- 아이디별 금액 차감 -->
+	<insert id="smsSubmit2"> 
+        INSERT INTO BALANCE(BALANCE_NO, BALANCE_TYPE, BALANCE_DATE, BALANCE_COIN, BALANCE_CONTENTS, USER_ID)
+		VALUES(BALANCE_SEQ.NEXTVAL, 0, SYSDATE, 20, '문자 발송으로 인한 차감', #{id})
+    </insert>
 		 
 </mapper>

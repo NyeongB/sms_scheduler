@@ -19,4 +19,8 @@ public interface MemberDAO
 
 	public ArrayList<UserDTO> getUsers();
 
+	public int getTotal(String id);
+
+	public void smsSubmit2(String id);
+
 }

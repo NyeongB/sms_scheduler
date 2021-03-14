@@ -23,6 +23,12 @@
 	<insert id="smsSubmit"> 
         INSERT INTO BALANCE(BALANCE_NO, BALANCE_TYPE, BALANCE_DATE, BALANCE_COIN, BALANCE_CONTENTS)
 		VALUES(BALANCE_SEQ.NEXTVAL, 0, SYSDATE, 20, '문자 발송으로 인한 차감')
-    </insert>	
+    </insert>
+    
+    <select id="getUsers" resultType="com.test.main.UserDTO"> 
+		SELECT ROWNUM "NUM", TBL.USER_ID "ID", TBL.USER_NAME "NAME", TBL.USER_CONTENT "CONTENT", TBL.USER_ONOFF "ONOFF", TBL.USER_DATE "DATE"
+		, '010-' || SUBSTR(TBL.USER_PHONE,4,4 ) || '-****' "PHONE"
+		FROM TBL_USER TBL
+	</select> 	
 		 
 </mapper>

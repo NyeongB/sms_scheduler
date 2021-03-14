@@ -1,5 +1,6 @@
 package com.test.main;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,12 @@ public class MemberService {
 		return memberDAO.getCoins_test();
 		// TODO Auto-generated method stub
 		
+	}
+
+	public ArrayList<UserDTO> getUsers()
+	{
+		// TODO Auto-generated method stub
+		return memberDAO.getUsers();
 	}
 	
 }

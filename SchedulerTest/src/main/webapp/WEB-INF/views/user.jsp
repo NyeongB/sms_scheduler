@@ -53,20 +53,22 @@ hr {
 								<th>활성화 버튼</th>
 							</tr>
 						</thead>
+						<c:forEach var="tmp" items="${list}">
 						<tbody>
 							<tr>
-								<td>1</td>
-								<td>최철녕</td>
-								<td>ccn_01</td>
-								<td>010-9965-****</td>
-								<td>기본내용</td>
+								<td>${tmp.num }</td>
+								<td>${tmp.name }</td>
+								<td>${tmp.id }</td>
+								<td>${tmp.phone }</td>
+								<td>${tmp.content }</td>
 								<td>51회</td>
-								<td>2021-03-01</td>
-								<td>문자활성화</td>
+								<td>${tmp.date }</td>
+								<td>${tmp.onoff }</td>
 								<td><button type="button" class="btn">신청</button></td>
 							</tr>
 
 						</tbody>
+						</c:forEach>
 
 					</table>
 				</div>

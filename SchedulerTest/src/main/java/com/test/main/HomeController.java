@@ -1,6 +1,7 @@
 package com.test.main;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -51,6 +52,9 @@ public class HomeController
 	public String user(Locale locale, Model model)
 	{
 		
+		ArrayList<UserDTO> list = memberService.getUsers();
+		//System.out.println(list.get(0).getName());
+		model.addAttribute("list", list);
 		
 		return "user";
 	}

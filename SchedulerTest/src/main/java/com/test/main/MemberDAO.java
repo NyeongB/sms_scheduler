@@ -1,5 +1,7 @@
 package com.test.main;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -14,5 +16,7 @@ public interface MemberDAO
 	public void smsSubmit();
 
 	public int getCoins_test();
+
+	public ArrayList<UserDTO> getUsers();
 
 }

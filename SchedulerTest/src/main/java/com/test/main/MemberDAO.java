@@ -23,4 +23,10 @@ public interface MemberDAO
 
 	public void smsSubmit2(String id);
 
+	public void setOff(String id);
+
+	public void setOn(String id);
+
+	public String getType(String id);
+
 }

@@ -7,6 +7,36 @@
 <title>사용자</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".btnDelete").click(
+			function()
+			{
+				// 확인
+				//alert($(this).val());
+
+				var mid = $(this).val();
+
+				if (confirm(mid + "활성화 상태를 변경하시겠습니까?"))
+				{
+					//$(location).attr("href","memberdelete.action?mid="+mid);
+					$(location).attr(
+							"href",
+							"onoff?id="
+									+ $(this).val());
+				}
+				//$(location).attr("href","memberdelete.action?mid="+$(this).val());
+				//$(location).attr("href","memberdelete.action");
+			});
+
+	
+	
+});
+</script>
 
 <style>
 .login {
@@ -66,7 +96,7 @@ hr {
 								<td>${tmp.count } 회</td>
 								<td>${tmp.date }</td>
 								<td>${tmp.onoff }</td>
-								<td><button type="button" class="btn">신청</button></td>
+								<td><button type="button" class="btn btnDelete" value="${tmp.id }">신청</button></td>
 							</tr>
 
 						</tbody>

@@ -65,5 +65,21 @@ public class HomeController
 		
 		return "user";
 	}
+	
+	@RequestMapping(value = "/onoff", method = RequestMethod.GET)
+	public String onoff(Locale locale, Model model,String id)
+	{
+		String type = memberService.getType(id);
+		//on -> off
+		if(type.equals("ON"))
+		{
+			memberService.setOff(id);
+		}
+		else if(type.equals("OFF")){ //off -> on
+			memberService.setOn(id);
+		}
+		
+		return "redirect:user";
+	}
 
 }

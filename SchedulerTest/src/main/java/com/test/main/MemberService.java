@@ -48,5 +48,24 @@ public class MemberService {
 		// TODO Auto-generated method stub
 		return memberDAO.getTotal(id);
 	}
+
+	public void setOff(String id)
+	{
+		// TODO Auto-generated method stub
+		memberDAO.setOff(id);
+		
+	}
+
+	public void setOn(String id)
+	{
+		// TODO Auto-generated method stub
+		memberDAO.setOn(id);
+	}
+
+	public String getType(String id)
+	{
+		// TODO Auto-generated method stub
+		return memberDAO.getType(id);
+	}
 	
 }

@@ -45,5 +45,17 @@
         INSERT INTO BALANCE(BALANCE_NO, BALANCE_TYPE, BALANCE_DATE, BALANCE_COIN, BALANCE_CONTENTS, USER_ID)
 		VALUES(BALANCE_SEQ.NEXTVAL, 0, SYSDATE, 20, '문자 발송으로 인한 차감', #{id})
     </insert>
+    
+    <update id="setOff"> 
+        UPDATE TBL_USER SET USER_ONOFF = 'OFF' WHERE USER_ID = #{id}
+    </update>
+    
+    <update id="setOn"> 
+        UPDATE TBL_USER SET USER_ONOFF = 'ON' WHERE USER_ID = #{id}
+    </update>
+    
+    <select id="getType" resultType="java.lang.String"> 
+		SELECT USER_ONOFF FROM TBL_USER WHERE USER_ID = #{id}
+	</select> 
 		 
 </mapper>

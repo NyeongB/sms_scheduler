@@ -17,5 +17,6 @@
 	<h1>${str }</h1>
 	<h1>+ 잔액정보 발송</h1>
 	<%-- <h1>${test_num }</h1> --%>
+	<h1><a href="user">user</a></h1>
 </body>
 </html>

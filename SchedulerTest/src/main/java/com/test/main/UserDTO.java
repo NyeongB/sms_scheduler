@@ -9,7 +9,34 @@ public class UserDTO
 	private String content;
 	private String date;
 	private String onoff;
+	private String rp;
+	private String total;
+	private String count;
 	
+	public String getCount()
+	{
+		return count;
+	}
+	public void setCount(String count)
+	{
+		this.count = count;
+	}
+	public String getRp()
+	{
+		return rp;
+	}
+	public void setRp(String rp)
+	{
+		this.rp = rp;
+	}
+	public String getTotal()
+	{
+		return total;
+	}
+	public void setTotal(String total)
+	{
+		this.total = total;
+	}
 	public int getNum()
 	{
 		return num;

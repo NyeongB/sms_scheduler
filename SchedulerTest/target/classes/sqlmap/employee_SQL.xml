@@ -26,9 +26,12 @@
     </insert>
     
     <select id="getUsers" resultType="com.test.main.UserDTO"> 
-		SELECT ROWNUM "NUM", TBL.USER_ID "ID", TBL.USER_NAME "NAME", TBL.USER_CONTENT "CONTENT", TBL.USER_ONOFF "ONOFF", TBL.USER_DATE "DATE"
-		, '010-' || SUBSTR(TBL.USER_PHONE,4,4 ) || '-****' "PHONE"
+		SELECT T.*, (SELECT NVL(GET_TOTAL("ID"),'0') "total" FROM DUAL) "TOTAL" FROM 
+		(SELECT ROWNUM "NUM", TBL.USER_ID "ID", TBL.USER_NAME "NAME", TBL.USER_CONTENT "CONTENT"
+		, TBL.USER_ONOFF "ONOFF", TBL.USER_DATE "DATE"
+		, '010-' || SUBSTR(TBL.USER_PHONE,4,4 ) || '-****' "PHONE", TBL.USER_PHONE "RP"
 		FROM TBL_USER TBL
+		ORDER BY "DATE" ) T
 	</select> 	
 		 
 </mapper>

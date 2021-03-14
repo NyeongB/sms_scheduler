@@ -47,6 +47,7 @@ hr {
 								<th>아이디</th>
 								<th>전화번호</th>
 								<th>내용</th>
+								<th>남은금액</th>
 								<th>남은횟수</th>
 								<th>가입일</th>
 								<th>활성화</th>
@@ -61,7 +62,8 @@ hr {
 								<td>${tmp.id }</td>
 								<td>${tmp.phone }</td>
 								<td>${tmp.content }</td>
-								<td>51회</td>
+								<td>${tmp.total }</td>
+								<td>${tmp.count } 회</td>
 								<td>${tmp.date }</td>
 								<td>${tmp.onoff }</td>
 								<td><button type="button" class="btn">신청</button></td>

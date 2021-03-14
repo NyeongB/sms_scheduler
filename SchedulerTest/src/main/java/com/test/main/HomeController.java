@@ -54,6 +54,13 @@ public class HomeController
 		
 		ArrayList<UserDTO> list = memberService.getUsers();
 		//System.out.println(list.get(0).getName());
+		for(UserDTO user : list)
+		{
+			int num = Integer.parseInt(user.getTotal());
+			System.out.println(num);
+			user.setTotal(String.format("%,d", num));
+			user.setCount(""+(num/20));
+		}
 		model.addAttribute("list", list);
 		
 		return "user";

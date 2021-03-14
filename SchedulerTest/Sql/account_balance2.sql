@@ -11,10 +11,23 @@ commit;
 -- 전체 잔액 조회
 select * from balance order by BALANCE_NO;
 
-delete from balance where BALANCE_NO= '134';
+delete from balance where BALANCE_NO= '128';
 
 -- 아이디 별 총액 펑션
 SELECT nvl(GET_TOTAL('ccn_01'),'0') "total" FROM DUAL;
 SELECT nvl(GET_TOTAL('kbj_01'),'0') "total" FROM DUAL;
 SELECT nvl(GET_TOTAL('kbh_01'),'0') "total" FROM DUAL;
 SELECT nvl(GET_TOTAL('cdi_01'),'0') "total" FROM DUAL;
+
+INSERT INTO BALANCE(BALANCE_NO, BALANCE_TYPE, BALANCE_DATE, BALANCE_COIN, BALANCE_CONTENTS, USER_ID)
+VALUES(BALANCE_SEQ.NEXTVAL, 1, SYSDATE, 200, '충전으로 인한 증감', 'kbj_01');
+
+-- on off 
+
+SELECT * FROM TBL_USER;
+
+UPDATE TBL_USER SET USER_ONOFF = 'OFF' WHERE USER_ID = 'ccn_01';
+
+UPDATE TBL_USER SET USER_ONOFF = 'ON' WHERE USER_ID = 'ccn_01';
+
+COMMIT;

@@ -31,6 +31,8 @@
 	    <task:scheduler id="jobScheduler" pool-size="10" />
 	    <task:annotation-driven scheduler="jobScheduler" />
 	
+	<!-- config파일 자동 로드 location="classpath:database.properties"  /!-->
+	<context:property-placeholder location="/*.properties" />
 	
 	
 </beans:beans>

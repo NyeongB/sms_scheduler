@@ -15,9 +15,7 @@
 		■설정 정보 : <Strong style="color: blue;">주중 매일 08:50</Strong>에 QR 체크 요청 SMS
 		발송■
 	</p>
-	 <h1 class="clock">test</h1>
-
-    <script src = "${path}/resources/js/test.js" ></script>
+	 
 	
 	<h1>${str }</h1>
 	<h1>+ 잔액정보 발송</h1>
